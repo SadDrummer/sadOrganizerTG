@@ -4,9 +4,10 @@ from telegram.ext import (Updater, CommandHandler, CallbackContext, Filters, Mes
 from telegram import (Update, KeyboardButton, ReplyKeyboardMarkup)
 import pytz
 import json
+import sadtoken
 
 
-TOKEN = open("token.txt").read()
+TOKEN = sadtoken.TOKEN
 button_run = "Запустить отслеживание"
 reply_markup = ReplyKeyboardMarkup(
         keyboard=[[KeyboardButton(text=button_run)]],
