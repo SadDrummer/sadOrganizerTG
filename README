@@ -1,0 +1,10 @@
+Telegram bot organizer
+
+At the start, it is a simple reminder of the tasks stored in the JSON.
+
+Planned for the future:
+Adding/removing tasks from a bot
+Connect database to store users and tasks
+Storing sessions to continue working after restarting the script
+
+The project is implemented in Python 3.10 using the python-telegram-bot 13.14 library
