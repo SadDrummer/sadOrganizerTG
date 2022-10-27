@@ -37,7 +37,7 @@ def telegram_daily_job(context: CallbackContext):
 def run_checking(update: Update, context: CallbackContext):
     chat_id = update.message.chat_id
     beep_time = time(hour=10).replace(tzinfo=pytz.timezone("Europe/Moscow"))
-    beep_time = time(hour=16, minute=41).replace(tzinfo=pytz.timezone("Europe/Moscow"))
+    #beep_time = time(hour=16, minute=41).replace(tzinfo=pytz.timezone("Europe/Moscow"))
     context.job_queue.run_daily(telegram_daily_job, time=beep_time, context=chat_id, name=str(chat_id))
     update.message.reply_text("Отслеживание запущено", reply_markup=reply_markup)
 
