@@ -32,7 +32,9 @@ def run_button(update: Update, context: CallbackContext):
 
 def telegram_daily_job(context: CallbackContext):
     job = context.job
-    context.bot.send_message(job.context, text=today_tasks())
+    text = today_tasks()
+    if (text):
+        context.bot.send_message(job.context, text=text)
 
 
 def run_checking(update: Update, context: CallbackContext):
@@ -60,11 +62,14 @@ def is_task_today(task_date_field):
 
 def today_tasks():
     tasks = json.load(open("tasks.json", encoding="utf-8"))["tasks"]
-    message = "Сегодня:\n\n"
+    message = ""
     for task in tasks:
         if (is_task_today(task["date"])):
             message += task["name"] + "\nОписание:\n" + task["description"] + "\n\n"
-    return message[:-2]
+    if message == "":
+        return False
+    else:
+        return "Сегодня:\n\n" + message[:-2]
 
 
 def main():
